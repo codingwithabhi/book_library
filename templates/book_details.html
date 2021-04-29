@@ -1,0 +1,25 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-3">
+  <h2 align="middle">Book Details</h2>
+
+       <div class="card-body">
+            <p class="text-gray-900 p-3 m-0">Name : {{book.title}}</p>
+            <p class="text-gray-900 p-3 m-0">Author : {{book.author}}</p>
+            <p class="text-gray-900 p-3 m-0">Genre : {{book.genre}}</p>
+            <p class="text-gray-900 p-3 m-0">Availability Type : {{book.availability_type}}</p>
+            <p class="text-gray-900 p-3 m-0">Review : {{book.review}}</p>
+           
+         
+            {% if msg %}
+            <div class="alert alert-danger alert-dismissible fade show">
+               <button type="button" class="close" data-dismiss="alert">&times;</button>
+               <strong>Error!</strong> {{msg}}
+            </div>
+            {% endif %}
+        </div>
+</div>
+{% endblock %}

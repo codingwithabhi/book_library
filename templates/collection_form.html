@@ -1,0 +1,41 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-3">
+  <h2 align="middle">Add Book</h2>
+ 
+  <div class="row">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4">
+    <form method="post" enctype="multipart/form-data" novalidate>
+        <div class="card-content">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.name.label }} : {{ form.name }} 
+                {{ form.name.errors }} 
+              </div>
+              
+        </div>
+        <div class="card-action right-align">
+            <a href="{% url 'collection-list' %}" class="btn btn-primary">
+               Cancel
+            </a>
+            {% if book.pk %}
+            <button type="submit" class="btn btn-primary">
+               Update
+            </button>
+            {% else %}
+            <button type="submit" class="btn btn-primary">
+               Add
+            </button>
+            {% endif %}
+        </div>
+   </form>
+  </div>
+  </div>
+  
+</div>
+{% endblock %}

@@ -55,8 +55,11 @@ class Collection(models.Model):
     
 
 class CollectionBook(models.Model):
-    book = models.ForeignKey(Book,on_delete=models.CASCADE,unique=True)
+    book = models.ForeignKey(Book,on_delete=models.CASCADE)
     collection = models.ForeignKey(Collection,on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('book', 'collection',)
 
     def __str__(self) -> str:
         return self.book.title+ " - " +self.collection.name

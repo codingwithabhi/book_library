@@ -72,7 +72,6 @@ def _collection_book_edit(request,collection,collection_book):
         messages.success(request, msg)
         return redirect("collection-details", pk=collection.pk)
     collection_book_list = CollectionBook.objects.filter(collection=collection)
-    print(collection_book_list)
     ctx = {"collection": collection, "form": form,"collection_book_list":collection_book_list}
     return render(request, "collection_details.html", ctx)
     
